@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
 
     steps:
       - name: Checkout repository
@@ -24,6 +27,9 @@ jobs:
         with:
           flutter-version: '3.19.0'
           channel: 'stable'
+
+      - name: Verificar archivos (Debug)
+        run: ls -R
 
       - name: Install dependencies
         run: flutter pub get
